@@ -59,7 +59,7 @@ class Meilisearch
         return shell_exec("curl \
   -X GET '{$this->domain}/tasks$index' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer $this->apiKey' | json_pp");
+  -H 'Authorization: Bearer $this->apiKey'");
     }
 
     /*
@@ -76,7 +76,7 @@ class Meilisearch
         $this->validate();
         return shell_exec("curl \
   -X GET '$this->domain/indexes/$this->index/settings' \
-  -H 'Authorization: Bearer $this->apiKey' | json_pp");
+  -H 'Authorization: Bearer $this->apiKey'");
     }
 
     /**
@@ -90,7 +90,7 @@ class Meilisearch
   -X PATCH '$this->domain/indexes/$this->index/settings' \
   -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer $this->apiKey' \
-  --data-binary '$settings' | json_pp");
+  --data-binary '$settings'");
     }
 
     /**
@@ -101,7 +101,7 @@ class Meilisearch
         $this->validate();
         return shell_exec("curl \
   -X GET '$this->domain/indexes/$this->index/stats' \
-  -H 'Authorization: Bearer $this->apiKey' | json_pp ");
+  -H 'Authorization: Bearer $this->apiKey'");
     }
 
     /**
@@ -117,7 +117,7 @@ class Meilisearch
         $result = shell_exec("curl \
   -X POST '{$this->domain}/indexes/$this->index/documents' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer $this->apiKey' --data-binary @$path | json_pp");
+  -H 'Authorization: Bearer $this->apiKey' --data-binary @$path");
         fclose($file);
         return $result;
     }
@@ -131,6 +131,6 @@ class Meilisearch
         return shell_exec("curl \
   -X DELETE '{$this->domain}/indexes/$this->index' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer $this->apiKey' | json_pp");
+  -H 'Authorization: Bearer $this->apiKey'");
     }
 }
